@@ -1,0 +1,102 @@
+cloud computing : it is a delivery of computing services including, srevers,storage,database,networking,software analytics and intelligence over the internet to offer the fast services
+
+used to develop new applications ,storage back up and recovery of data
+
+data analysis
+
+streaming audios and videos
+
+host blogs and websites
+
+
+Ec2 - Original operating system
+
+	( platform as a service )
+
+S3  -  kind of Google drive
+
+	simple storage service
+
+RDS - ( RELATIONAL DATABASE SERVICE )
+
+	create database
+
+EC2 - ELASTIC CLOUD COMPUTE
+
+Gives Virtual Operating system which will help to operate the servers, Application Development and Testing 
+
+Provides Ip, User Id and Password
+
+
+
+S3 - Simple Storage Service
+
+It actually work like the gooogle drive we can upload and download the things from that 
+
+upload objects
+
+view objects
+
+delete objects
+
+copy/move the objects 
+
+
+RDS - RELATIONAL DATABASE SERVICES
+
+It stores the data in the form of tables 
+
+we can insert,delete,update and select the values 
+
+
+Infrastructure as a service (IaaS):It provides cloud infrastructure in terms of hardware as like memory, processor, speed etc.
+
+Platform as a service (PaaS):It provides cloud application platform for the developer.
+
+Software as a service (SaaS)::It provides the cloud applications to users directly without installing anything on the system. These applications remains on cloud.
+
+
+
+types of cloud services 
+
+infrastructure as a service - AWS
+
+
+
+
+platform as a service  - EC2
+
+
+software as a service  -  Google sheet 
+
+
+ec2-amicatalog-copy and paste ,add files
+
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "*",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::libastore/*"
+        }
+    ]
+}
+
+c316db
+admin
+vamsi6302369469
+
+
+create database,mysql,public access -yes
+
+security vpc click on link and security group id
+
+https://ec2-3-231-203-51.compute-1.amazonaws.com/
+
+
+
+

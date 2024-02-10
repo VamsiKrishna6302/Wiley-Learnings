@@ -1,0 +1,41 @@
+feasability Analysis  --> Men power,software and hardware(Require technology)
+
+SRS(SOFTWARE REQUIREMENT SPECIFICATION)  --> Study of the requirements,types of requirement
+funtional : register/SIGN IN/BOOK TICKETS // UPDATE PROFILE
+NON FUNCTIONAL : FASTER/STABLE/EASY TO USE/ACCESS/SECURE
+
+design : 
+
+HLD  : FLOW OF INFORMATION ACROSS THE SYSTEM
+
+LLD   :
+
+water fall model: once we goto next step not possible move to back
+
+INCREMENTAL DEVELOPMENT : UPDATES OF WTS APP is an example
+
+prototype     :  client evaluation will be there before deployment
+
+spiral model  : objective,
+
+challenges with sdlc
+
+1) Client communication
+
+2) Managament/Scheduling
+
+3) Change in rquest
+
+4)Crunch time in testing
+
+Agile - ability to respond the changes
+
+scrum - its a implementation of agile
+
+sprint - Current developmental iteration
+
+
+
+
+
+scrum notes

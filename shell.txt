@@ -1,0 +1,70 @@
+chmod u+x hello.sh
+
+./hello.sh
+
+source ./hello.sh
+
+bash -x ./lab2.sh		--->	Truble shooting
+
+test 10 -gt 55; echo $?
+
+test 54 -gt 55 && echo true || echo false
+
+[ 56 -gt 55 ] && echo true || echo false
+
+test -e testfile &&  echo true || echo false
+
+
+test -s lab2.sh && echo true || echo false
+
+FILE exists and  is not empty
+
+
+test -z "" && echo true || echo false
+-z STRING
+the length of STRING is zero                                                                    
+true
+
+
+-e file exists
+test -e lab1.sh && echo true || echo false
+
+-d directory exists
+test -d lab1 && echo true || echo false
+
+-ne not equal to
+test 42 -ne 96 && echo true || echo false
+
+-z length of string is 0
+test -z "" && echo true || echo false
+
+-n length of string is not 0
+test -n "no" && echo true || echo false
+
+echo `expr 3.2+2.5|bc`
+
+
+
+[ 66 -gt 55 -o 66 -lt 500 ] && echo true || echo false
+
+
+
+[ 66 -gt 55 -a 66 -lt 500 ] && echo true || echo false
+
+
+seq 1 10
+
+seq 1 2 10
+
+{1..20}
+
+
+
+
+8
+8
+9
+10
+10
+9
+9

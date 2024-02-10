@@ -1,0 +1,1318 @@
+/etc/sysconfig/network-scripts/ifcfg-enp0s3	--->	To check network Settings
+
+/etc/hosts		--->	Password less authentication
+
+/etc/shadow		--->	Password
+
+/etc/passwd		--->	Users
+
+/etc/group		--->	Groups
+
+/etc/boot		--->	BOOT
+
+/var/log		--->	Basic Trouble Shoot
+
+/etc/sudoers	--->	To give permission to normal user or ( visudo )
+
+cat /etc/shells	--->	it will show all supported shells
+
+
+===========================================================  	Root access permission to user	==================================================
+
+open vi /etc/sudoers or visudo
+
+vamsi	(ALL=ALL)	ALL
+
+and need to give sudo access everytime if its authorized 
+
+==================================================================	Soft Link and Hard Link		========================================================
+
+ln file1 hl_file1		--->	To create the hardlink
+
+					( if you delete the original file no effect in hl )
+
+
+ln -s file2 sl_file2	--->	To create the soft link ( Symbolic link  as a reference ) 
+
+					( if you delete the original file no effect in hl )
+
+========================================================================   Crontab	==========================================================================
+
+
+crontab -l		--->	Display Scheduled events
+
+crontab -e		--->	To add an script or schedule script
+
+* * * * * /root/lab.sh >> output.txt
+
+first star  -  min
+
+second star -  Hour
+
+Third star	-  day  in  a month
+
+Fourth Star	-  Month Jan, March, April
+
+Fifth Star	-  0 to 7 (or) sun,mon 
+
+crontab -r		--->	Remove the schedule events
+
+
+======================================================================	Password Less Authentication	=================================================================
+
+hostnamectl set-hostname webserverStation
+
+vi /etc/hosts
+
+add the ip address of databaseStation and give dummyname 
+
+and ping it 
+
+do the same in webserver
+
+and ping it
+
+ssh-keygen
+
+secret007
+
+db=ssh-copy-id -i secret007.pub root@webserverstation
+
+ssh-agent bash
+
+ssh-add secret007
+
+ssh 'root@webserverstation'
+
+ssh 'root@dbstation'
+
+========================================================================  Disk Partition  ===============================================================================
+
+sudo fdisk /dev/sdb --- initialises disk partition
+
+4 Primary Partitions can be created
+
+The primary partition with boot loader is called active partition
+
+In order to make more partitions we use extended partitions
+
+Extended partitions is only used to hold logical partitions
+
+Any number of logical partitions can be created in extended partitions
+
+Only one extended partition can be present
+
+
+
+command(m for help) : n ---- create new partition
+		    
+		      p ---- print partitions in that volume
+
+		      w ---- write the partitions to disk and exit
+
+		      q ---- quit without saving
+
+		      t ---- for changing the partition system id
+
+		      l ---- to list the available partition types
+
+		      d ---- delete a partition
+
+
+fdisk /dev/sdb
+		
+Formatting the partitions
+
+sudo mkfs -t ext4 /dev/sdb2
+
+
+==========================================================================  VI EDITOR BASICS  ==========================================================================
+ 
+i               -->  Insert Mode (You can write whatever you want to write)
+
+Escape(Button)  -->  To comeback to command mode
+
+h               -->  Left side in command mode
+
+j               -->  Downward in command mode
+
+k               -->  Upwards In command mode
+
+l               -->  Right side in command mode  
+
+o               -->  Next Line
+
+O               -->  Above the line new Line appear
+
+a               -->  Starting of the line in command mode 
+
+A               -->  end of the line in command mode
+
+yy              -->  Copy the content in the line
+
+p               -->  Paste the content
+
+:w(Save)        -->  :w is used to save the file in command Mode
+
+			   :w first.txt // first.txt is a file name 
+
+:q              -->  To quit from the editor 
+
+:q!             -->  Without saving and quit will takes place
+
+:wq             -->  Save the content and quit the file 
+
+==========================================================================	Touch		==============================================================================
+
+touch -a file51	-->   (Access time) Last Time which you read
+
+touch -m file51	--->  (Modification Time) Last time which you modified
+
+touch -d "2019-05-06 20:40" file51	--->  Modifing date to certain date and time
+
+stat file51		--->  Check status 
+
+==========================================================================  30 BASIC COMMANDS  ==========================================================================
+
+mkdir   -->  Make directory
+
+		 mkdir LINUX_COMMANDS
+
+		 mkdir -p vamsi/krishna/reddy
+
+ls      -->  List of contents
+      
+             ls
+		
+		 ls -l
+
+		 ls -a  // Display hidden 
+
+		 ls -i  // Inode
+
+		 ls -S  // Sorting in file size
+
+		 ls -r  // Sorting in reverse
+
+		 ls -t  // Sorting to modified at first
+
+
+cd      -->  Back or to enter the directory
+
+		 cd or cd LINUX_COMMANDS
+
+touch   -->  Create empty files in the directory
+			
+		  touch vamsi.txt
+
+cat     -->  Used to create the file and writes the content Until you press CTRL+D. After pressing ctrl+D it will sava the ciontent to the file
+
+		  cat>krishna.txt
+
+cat     -->  Cat command also used to Display the content     
+
+		  cat krishna.txt 
+
+clear   -->  Clear is used to clear all the Linux Commands
+
+             clear
+
+cat        -->  Cat is also used to merge the files
+
+                cat krishna.txt Merge.txt > FileMerge.txt // Merging files of Krishna nd merge to FileMerge.txt
+
+ls *.txt    -->  Only Gives the text files Present in the directory
+
+cp          -->  Used to copy and paste the content
+
+		     cp Reddy.py File.txt
+
+mv          -->  Move the file to outside nd inside of the folder
+
+		      mv File1.txt /home/kingkrishna  // Path is used for the desired path 
+
+head        -->  Top 10 lines of a file
+
+                 head baby.txt
+
+tail        -->  Bottom 10 lines of a text
+
+		     tail baby.txt
+
+whatis 	--->	It will explain whatis that command
+
+			whatis cp
+
+			whatis ssh
+
+which		-->	It will show from which path the command is coming
+
+tac         -->  Display in the reversal order from the last line 
+
+		     tac baby.txt
+
+id          -->  Display Id of the user
+
+		     id
+
+more        -->  its like the cat command to display the content
+
+		     more baby.txt
+
+grep        -->  its is used to search the content 
+
+		     grep Hello Reddy.py  // Displays the Hello in red if its presnt in Reddy.py
+
+diff        -->  it will prints diffrence between the two filse
+
+		     diff File2.txt FileMerge.txt
+
+ping        -->  Whether its connected to the server or not and ctrl+z is to stop the server check
+
+		     ping google.com 
+
+History     -->  It will shows the history of commands which are used
+
+		     history
+
+Pwd         -->  It will help to show the directory
+
+		     pwd
+
+hostname	-->  It will display hostname
+
+		     Hostname
+
+		     hostnamectl set-hostname flask
+
+
+Hostname- i -->  It eil display the host ip
+
+		     hostname -i 
+
+chmod       -->  it will give the access to edit
+
+		     chmod u=r harsha.txt  // Read Access we cannot edit it
+
+		     chmod u=w harsha.txt  // Write Access
+
+nl		-->  It wil show the number of lines and content 
+
+
+		     nl harsha.txt
+
+wc 		-->  it wil show number of lines, words and characters 
+
+		     wc harsha.txt
+
+
+uniq        -->  It will remove the duplicate lines 
+
+		     uniq harsha.txt
+
+rmdir       -->  It will actually deltes the empty directory
+
+		     rmdir LINUX
+
+rm		-->  It is used to remove only the files
+
+		     rm harsha.txt
+
+Restart	-->	systemctl restart network
+
+Status	-->	systemctl status network
+
+
+Yum		-->	yum update
+
+
+To install	-->	yum install epel-release
+
+ls -l  	-->   long listing
+
+ls -l /  	-->   directories 
+
+ls -a	   	-->   hidden files
+
+ls -li	-->	Inodes of a file
+
+ls -lh	-->	To know the sizes 
+
+nslookup	-->	DNS server
+					
+
+sleep 3 &   --> irrespective of sleep ( it will run in the background )
+
+rm -rf file1-->  Forcefully and recursively removal of file
+
+rm file1    --> To remove file
+
+echo $?	--> Exit Code 
+
+echo $PS1	-->
+
+echo $HISTSIZE	-->	History Size
+
+echo $HISTSIZE=15000	-->	Changing History size
+
+echo "is is very cold today">>winter.txt    ---> append
+
+echo "is is very cold today">winter.txt     ---> overwrite
+
+
+cd ..   ---> to back one step to directory
+
+cd	  --->  actually goes full back
+
+
+cd ~	  --->  go to main root
+
+
+cd -    --->   return to the back directory
+
+
+!!	  --->   repeat the last command with output
+
+!c	  --->   repeat the last command
+
+!(number)	--->	in history of commands
+
+in
+
+
+ssh	--->	Uses to open the other servers
+
+service
+
+export
+
+traceroute
+
+wget	--->	To download the packages from file system
+
+		wget url
+		
+		wget -O file_name url
+
+ufw	--->	
+
+iptables
+
+netstat	--->	It will show the network statistics
+
+vmstat	--->	It will show the memory statistics
+
+More	--->	More displays the one screenful at a time
+
+		it wil allows only forward control
+
+less	--->	Less is similar to more command 
+
+		it will allows both forward and backward controls
+
+		note :- Both are also used to search the patterns
+
+
+
+mount	--->	It actually used to mount the file system
+
+dd	--->	Restore and Backup ( Data/disk duplicater or  disk destroyer )
+
+		dd if=/dev/sdb of=/dev/sdc status=progress
+
+
+
+
+
+
+==========================================================================  COMPILING  ==========================================================================
+
+
+sudo		          -->  To update the sudo application
+
+			         sudo apt update
+
+install gcc           -->  installing gcc
+
+			         sudo apt install gcc
+
+to compile in c       -->  gcc hello.c // To compile
+
+
+to show the o/p in c  -->  ./a.out // To display the output
+
+
+to run python program -->  python3 heloworld.py
+
+
+=======================================================================		tr		==================================================================
+
+tr -d "[:lower:]"	--->  Deleting all the lowercases in file
+
+tr -s '  ' ' '
+
+tr -d [0-9]
+
+=======================================================================	 	uniq		===================================================================
+
+uniq -c	--->	Count of its occur
+
+uniq -d	--->	Display the repeted lines
+
+uniq -u	--->	Display the lines that are not repeated 
+
+========================================================================	Sort		==================================================================
+
+sort -r	--->	Sort in reverse
+
+sort -n	--->  Sort in numbers
+
+sort -t "|" -k2 filep	---> Sorting using delimiter
+
+sort -nr	--->	Using both n and r 
+
+========================================================================	CUT	========================================================================
+
+cut -c3					--->	Character 3
+
+cut -c2-7					--->	Character 2 to 7
+
+cut -d, -f1 nba.csv | head -10	--->	Using Delimiter
+
+cut -d, -f1-3 nba.csv | head -10
+
+cut -d, -f1,3,5 nba.csv | head -10
+
+cut -d $'\t' -f2-1000			--->	Using Space 
+
+cut -d',' -f1-1000 --output-delimter="|"	--->	It will change the delimiter from , to |
+
+
+=========================================================================  GREP FILTER  ====================================================================
+
+Grep                    --->    cat GrepFile.txt | grep "Hello"
+
+					     grep "Hello" GrepFile.txt
+
+n				--->	  It will show the line of occur
+
+					   grep -n "hello" *.txt
+
+c                       --->    In number of lines the character or string is present in the file
+
+					     grep -c "o" GrepFile.txt
+
+h				  --->     Display all the matching files
+
+					     grep -h "o" GrepFile.txt
+
+l                      --->     Display the file names if the pattern is present 
+
+					     grep -l "o" *
+
+L				--->	Display the file names if the pattern are not present
+
+						grep -L "vamsi" *
+
+
+v 				 --->     Display the lines at which the pattern is not there 
+
+					     grep -v "too" GrepFile.txt
+
+w				--->		Display the word matching 
+
+						grep -w "the"
+
+grep -wi "the"		--->		Case insensitive searching
+
+						the ={The,tHe,THE,tHE,thE...}
+
+grep -Ewi 'the|that|then|those'	--->	To search for multiple commands 
+
+grep '^D' dummy.txt		--->		Starts with ^
+ 
+grep 'ing$' dummy.txt		--->		ends with $
+
+grep '[0-9]' dummy.txt
+
+grep 'IP100[0-9][0-9]' dummy.txt	--->   Matching with 0-9 in dummy data 
+
+=========================================================================  SED FILTER  ====================================================================
+
+
+sed 's/wiley/wileyEdge/' dummy.txt	--->	replace the words
+
+sed 's/0/*/g' dummy.txt
+
+sed 's/0/*/g' dummy.txt > newdummy.txt	----->  Replacing
+
+sed -e 's/a/@/g' -e 's/0/#/g' dummy.txt	---->  Multiple replaces in one line 
+
+sed '1,17 s/0/*/g' dummy.txt	--->	1 to 17 line changing or replacing
+
+sed -n '8p' dummy.txt	----> 	printing 8 th line 
+
+sed '1d' dummy.txt	--->      Deleting the first line 
+
+sed '2,9d' Sed1		--->      Deletes multiple lines s
+
+sed -i 's/0/*/g' dummy.txt	---> to save the changes in the file 
+
+S	--->	Substitute
+
+g	--->	Globally
+
+
+sed '1 s/i/dog/g' dog.txt	--->	Used to change in specific line 
+
+					or
+
+sed 's/i/dog/1' dog.txt		--->	Used to change in specific line
+
+
+sed 's/i/dog/I' dog.txt		--->	used to change or rplace globally
+
+
+sed '2,$d' dog.txt		--->	Delete all the rows from 2 to last
+
+sed 's/DOG/dog/2' dog.txt	--->	Replace the Second occurence of the word in each line
+
+sed 's/thy/your/gi'		--->	 Case Insensitive search and replace
+
+sed '/dog/d' Sed1			--->	Deletes the pattern matching 
+
+
+
+===========================================================================================================================================================
+
+
+=========================================================================  AWK FILTER  ====================================================================
+
+awk '{print $2}' data.tsv
+
+awk '{print}' data.tsv
+
+awk '/nginx/{print}' data.tsv
+
+awk '/nginx/{print $1,$4}' data.tsv
+
+awk '{print NR,$0}' data.tsv
+
+awk '{print NF,$0}' data.tsv
+
+awk 'BEGIN{ORS="\n\t\n"} {print $0}' data.tsv
+
+awk 'BEGIN{FS=" ";OFS="-"} {print $1,$2,$3,$4}' Awk1
+
+awk '{if($4=="") print "Not all scores are available for",$1}'
+
+awk '{if($2 > 50 && $3 > 50 && $4 >50) {print $1 " : Pass"} else {print $1 " : Fail"}}'
+
+=====================================================================	PASTE 	============================================================================
+
+paste fname lname			--->	Merging fname and lname
+
+paste -d "|" fname lname	--->	Using delimiter
+
+cat fname | paste - - 		--->	Merging single file to side by side 
+
+
+==================================================================== find ,Tee and Locate ================================================================
+
+rpm -qa | grep mysql	--->	To check whether the package is installed or not
+
+updatedb			--->  Before locate command we should use "updatedb" command
+
+locate bread		--->	
+
+find /root -name bread
+
+free
+
+ls c*
+
+ls c*t
+
+ls ??
+
+ls x?
+
+ls [str]*
+
+ls [!str]*
+
+ls [a-z]*
+
+tee command is used to store and display the content 
+
+
+================================================================== Useradd and groupadd ==================================================================
+
+
+cat etc/group
+
+cat etc/passwd
+
+useradd -m vamsi or useradd vamsi
+
+userdel vamsi
+
+
+sudo passwd vamsi
+
+groupadd superheros			--->	Creating group
+
+useradd -G superheros ironman		--->	New User
+
+usermod -G superheros  vamsi		--->	For an existing user
+
+groupdel superheros			--->	Delete the group
+
+
+========================================================================= COMM =============================================================================
+
+COMM  			---> 	  it is used to find matching content
+
+					  comm pl.txt p2.txt
+
+========================================================================== cal and sleep ====================================================================
+
+cal				--->   calender
+
+					  cal aug 2021
+
+sleep 			--->   sleep is to say the workoff the kernel temporarily
+
+					  sleep 5s
+
+					  sleep 5m
+
+					  sleep 5h
+
+					  sleep 5d
+
+======================================================================== chmod and chown ===================================================================
+
+user - u
+
+group - g
+
+others - o
+
+chmod u+x ( Permission to the user to execution )
+
+chmod g+w ( group ki write access )
+
+chmod og-w ( removing the access to others a d groups )
+
+chown : it actually used to change the user or groups or both the ownership of the file 
+
+chown vamsi:superheros file55
+
+chgrp superhero file55		--->	Change Group
+
+======================================================================  DATE  ==============================================================================
+
+date 				---> 	To display the date
+
+					date
+
+					date --date="yesterday"
+
+  					date --date="yesterday"
+
+  					date --date="tomorrow"
+
+  					date --date="1 year ago"
+
+  					date --date="1 day ago"
+
+  					date --date="1 sec ago"
+
+  					date --date="next sat"
+
+  					date --date="next sunday"
+
+  					date --date="2 day"
+
+  					date --date="1 year"
+					
+					date +%d   --> Day --> 11
+
+   					date +%D   --> (Date --> 11/11/22)
+   
+					date +%a   --> Day(Fri)
+
+				      date +%A   --> Day(Friday)
+
+   					date +%h   --> month(Short cut month --> Nov)
+ 
+					date +%b   --> month(Short cut month --> Nov)
+  
+					date +%B   --> month(Full Name --> November)
+  
+					date +%m   --> month(Month number)
+  					
+					date +%y   --> Year(Short cut year 21)
+  					
+					date +%Y   --> Year(Full Year)
+  
+					date +%S   --> Seconds
+  
+					date +%H   --> Hours
+  
+					date +%M   --> Mins
+
+======================================================================================================================================================
+
+
+echo				--->	To print the output
+
+					ex :- echo hii vamsi
+
+					to create the file as well 
+  
+					ex :- echo hi vamsi>>FileNmae.txt
+
+zip				--->  it actually used to zip the files
+
+					syntax : zip <ZIP FILE NAME> <ACTUAL FILE> <ACTUAL FILE> <ACTUAL FILE>
+
+					ex :- zip p123.zip p1.txt p2.txt p3.txt
+
+					To install the zip 
+
+					ex :- sudo apt install zip
+
+unzip				--->	It actually unzip the zipped files
+
+					unzip p123.txt
+
+========================================================================== Shell Scripting =============================================================
+
+Declare variable		--->	a=100
+
+print variable		--->	echo $a
+
+readonly variable		--->  readonly a
+
+unset variable		--->  It actually uses to delete the value of the varaiable 
+
+					ex :- unset a
+
+==========================================================================  ARRAYS  ====================================================================
+
+Define Array :
+
+
+1) array_name[index]=value1                                             ex: a[1]=10
+
+   array_name[index]=value2			                                  a[2]=20
+	
+   -----						                                  ....
+
+2) array_name=(value1,value2,value3,....)                               ex:  b=(100 200 300 400 500)
+
+
+3) array_name=([index1]=value1 [index2]=value2 [index3]=value3 ...)     ex:  
+
+
+
+Access Elements of Arrays :
+
+1) ${array_name[index]}                        --->   accessing single element
+
+									ex:- echo ${c[2]}
+
+2) ${array_name[@]} 				     --->   access all the elements of array
+
+   ${array_name[*]}                            --->   access all the elements of array
+
+									ex:- echo ${c[@]}
+
+3) ${array_name[@]:start_index}                --->   access all the elements of array starts from given index
+
+									ex:- echo ${c[@]:2}
+
+4) ${array_name[@]:start_index:No_of_elements} --->  access given number of elements from given start index.
+
+									ex:- echo ${c[@]:1:3}
+
+
+
+=========================================================================== Operators ==============================================================
+
+Arithematic Opertors         --->	+ , - , \* , / , %
+
+
+Relation Opeartors :
+
+>	-->   -gt
+
+<	-->	-lt
+
+<=	-->	-le
+
+>=	-->	-ge
+
+==	-->	-eq
+
+!=	-->	-ne
+
+
+Logical Operator :
+
+!	-->	Negation
+
+-o	-->	OR
+
+-a	-->	AND
+
+
+Syntax : [ Operand operator operand ]
+
+Example 1:  [$a -gt $b]
+
+		[$a -gt $b] -o [$a -gt $c] ==> a>b  or a>c
+
+		[$a -gt $b] -a [$a -gt $c] ==> a>b and a>c
+
+		
+
+		
+
+
+
+init 0
+root
+
+
+
+
+
+
+
+cp -pr /root/dir1 /root/dir2
+
+man cp
+
+mkdir -p 2022/nov/twentyFour
+
+
+rm -rf 2022  --> it actually deletes all the files includin with directory
+
+	r - recursively
+	
+	f - forcefully without any confirmation
+
+
+
+gunzip access log.gz
+
+scp access_log.gz root@192.168.43.107:/root
+
+head -4 Numbers.txt
+
+tail -4 Numbers.txt
+
+cat>p11.txt <<done
+
+
+cd /var/log
+mv file1 file4
+ls file*
+
+
+how do you trouble shooting ?
+
+/var/log
+
+echo hello
+
+echo "hello world"  - spaces included
+
+echo -e "stay \n hello" - To work with special characters 
+
+echo $SHELL
+
+type command  used to 
+
+alias vamsi=cat   -->  giving 
+
+unalias vamsi
+
+systemctl restart network
+
+set -x   	--> to know internal commands are working 
+
+set +x      -->  to off the set -x
+
+echo this is sample text > dummyFile
+
+file samplefile	--> it wil show which kind of file 
+
+sleep 3     -->  sleep 3 seconds
+
+
+
+&&	-->	the shell will interpret && as a logical and .when using && the second command is executed only if the firts one succeds
+
+
+||	-->	the Double vertical bar representrs Logical || the second command is executed is executed only when the first command fails
+
+echo first
+
+ECHO $PATH
+
+
+
+PS1='IamVK >'     --->  tO change local host name
+
+
+echo hello \? world 
+
+
+
+ctrl + R to search in history it will show all history to search
+
+*		---> 	0 to many 
+
+ls Fil?4	--->  One Character 
+
+ls File??	--->	2 character 
+
+ls File[A5][5B]
+
+ls file[!5]?
+
+
+
+pipes
+
+ls /etc > etcfiles.txt
+
+cat<test.txt | head -6 |tac |head -3
+
+ps ux
+
+ps 1
+
+top	
+
+nice -10 sleep 10 &
+
+grep -i Bel tennis.txt
+
+grep -vi bel tennis.txt
+
+grep -A2 Henin tennis.txt 	-->	2 lines after the display
+
+
+grep -B1 Henin tennis.txt	-->	1 line Before the patterna nd the pattern line as well
+
+grep -C1 Henin tennis.txt	-->	It will print Before and after lines and pattern as well at the middle
+
+cat winters.txt | tee revWinter.txt
+
+wc tennis.txt
+
+sort -t, -r -k8 nba.csv
+
+mv data.csv data.tsv
+
+yum install cowsay
+
+head -n 22 | tail -n 11
+
+
+head -c 20		---> 	Display the characters  first 20 
+
+tail -c 20		--->
+
+cat tennis.txt | tr 'a' '@'		---> 	Change the conetnt of the file a to @
+
+
+
+for i in $(seq 1 2 100)
+do
+    echo $i
+done
+
+echo $((x+y))
+echo $((x-y))
+echo $((x*y))
+echo $((x/y))
+
+
+
+for var in {1..50}
+do
+    echo $var
+done
+
+
+read n
+if [ $n == 'y' ] || [ $n == 'Y' ]
+then
+echo "YES"
+else
+echo "NO"
+fi
+
+read a
+read b
+read c
+if [ $a -eq $b ] && [ $b -eq $c ]
+then
+echo "EQUILATERAL"
+elif [ $a -eq $b ] || [ $b -eq $c ] || [ $a -eq $c ]
+then
+echo "ISOSCELES"
+else
+echo "SCALENE"
+fi
+
+read t;
+sum=0;
+for((i=0;i<t;i++))
+do
+read num;
+sum=$((sum+num));
+done
+printf "%.3f" $(echo "scale=4; $sum / $t " | bc );
+
+
+change 
+
+dlte 
+
+add 
+
+
+
+ls -i
+
+ls -l
+
+ls -al
+
+
+$0	-->  File name 
+
+
+$*	-->	all arguement will print
+
+netstat	--->	The netstat command is used to show network status.
+
+traceroute	--->A traceroute provides a map of how data on the internet travels from its source to its destination.
+
+chgrp		--->	Usd to change the group of particular file
+
+			chgrp Developers Text.txt
+
+======================================================	Find	    ================================================
+
+
+find . -name vamsi.txt
+
+find . -iname vamsi.txt
+
+find . -name "*.sh"
+
+find . -type f                 
+
+(f= file)
+
+find . -type d
+
+(d- dir)
+
+-7  	---> 	In the last 7 days
+
++7	--->	7 days before 
+
+find . -mtime -7
+
+find . -mtime +7
+
+find . -mtime 7
+
+find /path/to/search -type f -ctime -15 -ctime +7
+
+find . -empty
+
+find . -empty -type f
+
+find . -not -empty -type f
+
+find . -perm 777
+
+find . ! -perm 777
+
+find /path/to/search -type f -size +10M -size -100M
+
+find . -size 100k,50g,50m
+
+find . -iname (inode)
+
+find . -user root
+
+find . -perm 777 -exec chmod 755 {} \;
+
+====================================================		PS		==============================================
+
+ps	=	process state
+
+a	=	all
+
+u	=	users
+
+x	=	select all process 
+
+e	=     all processes
+
+f	=	full formt
+
+F	=	Very long formaat
+
+
+
+
+ps -aux	--->	It will print the  all process of full users
+
+ps -ef	--->	current running process on linux
+
+ps -A		--->	current running process
+
+ps -T		--->	Process which are associated with terminal
+
+ps -x		--->	It will show the user running process(root)
+
+ps -a		--->	view processes not associated with a terminal
+
+ps -p	pid	--->	See process by process id(PID)
+
+ps -u root	--->	Shows the process of the user
+
+================================================ NFS ============================================
+
+1)Add the disk partition
+
+2) use that partition as NFS share (lsblk) command
+
+3) fdisk /dev/sdb (sdb is a disk name)
+
+systemctl status rpcbind.service nfs-server.service rpc-statd.service nfs-idmapd.service
+
+
+
+
+
+================================================= wget ==========================================
+
+
+
+wget -O file_name url
+
+wget -P dir_name url
+
+wget -c url
+
+wget --ftp-user=vamsi --ftp-user-password=passwd ftp://123.456.7890
+
+systemctl start mysqld
+systemctl stop mysqld
+systemctl disable mysqld
+
+
+GRANT ALL PRIVILEGES ON *.* TO 'tolkien'@'%';
+FLUSH PRIVILEGES;
+show grants;
+
+
+
+python3 -m venv env
+
+. env/bin/activate
+
+pip install Flask
+
+cat>hello.py
+
+export FLASK_APP=hello.py
+  
+flask run
+
+
+
+read a
+read b
+read c
+if[ $a -eq $b ] && [ $a -eq $c ];
+then
+        echo "equilateral"
+elif[ $a -eq $b ] || [ $b -eq $c ] || [ $a -eq $c ];
+then
+        echo "isoceles"
+fi
+
+
+echo "Enter the length of side a: "
+read a
+echo "Enter the length of side b: "
+read b
+echo "Enter the length of side c: "
+read c
+
+if [ $a -eq $b ] && [ $b -eq $c ]; then
+  echo "This is an equilateral triangle."
+elif [ $a -eq $b ] || [ $a -eq $c ] || [ $b -eq $c ]; then
+  echo "This is an isosceles triangle."
+else
+  echo "This is neither an equilateral nor an isosceles triangle."
+fi
+
+
+
+
+
+
+
+
+In Python, init() is a special method that is automatically called when an object of a class is created. It is known as a constructor method because it is used to initialize the attributes of an object.
+
+Multithreading is a programming technique that allows a single process to perform multiple tasks concurrently by dividing its work into smaller units called threads
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		        

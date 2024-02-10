@@ -1,0 +1,48 @@
+ITIL		--->	1) ITIL stands for Information Technology Infrastructure Library	
+
+			2) Its a  guidlance of maintaining the it services 
+
+			3) 5 stages was Service Strategy,Service Transition,Service Operation,Service Design and continuous service improvement
+	
+Incident	---> 	1) It is an unplanned interruption in an IT service or reduction in the quality of IT sevice 
+
+Problem 	--->	1) Problem is an unknown cause of one or more incidents . Need to identify 
+
+SRE		--->	1) Site reliability engineering (SRE) is the practice of using software tools to automate IT infrastructure tasks such as system management and application monitoring. 
+
+			2) creates a bridge between development and IT operations by taking on the tasks typically done by operations.
+	
+DEVOPS	--->	1) The DevOps is a combination of two words, one is software Development, and second is Operations. This allows a single team to handle the entire application lifecycle, 			   
+			   from development to testing, deployment, and operations.
+
+INCIDENT MANAGEMENT ---> 1) Incident management is a series of steps taken to identify, analyze, and resolve critical incidents
+
+				 2) It is an unplanned interruption in an IT service or treduction in the quality of IT sevice 
+
+
+PROBLEM MANAGEMENT  ---> 1) problem management- Problem is defined as unknown cause of one or more incident. Problem Management ensures the identification of problems and performs Root 				    
+				    Analysis
+
+CHANGE MANAGEMENT	  --->  1) Change management is defined as the methods and manners in which a company describes and implements change within both its internal and external processes.
+
+
+ROLES OF IM
+PROBLEM 
+
+SLA		--->	1) An SLA or a Service Level Agreement refers to the commitment between a service provider and the end user.
+
+INCIDENT	--->	1) An incident is referred to an event that leads to disturbances and disruptions in an IT service, and a problem is the underlying cause of these incidents.
+
+KEDB		--->	1) Known error databases
+
+SERVICE DESK 
+
+L0 - BASIC / AI
+
+L1 - LOW TECHNICAL
+
+L2 - INTER
+
+L3 - Advance
+
+L4 - COMPANY

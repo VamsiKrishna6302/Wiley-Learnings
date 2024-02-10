@@ -1,0 +1,845 @@
+====================================================================  THEORY  ================================================================
+
+Normalisation : is the process of of removing anomalies from raw data 
+
+anamalies :( Redundant data or duplicate data )
+
+1) Increase disk space
+
+2) Decrease Performance
+
+3) Missing unique identification
+
+1NF: Each cell must contain exactly 1 value (the idea here is it to delete empty)
+
+2NF: 1NF+Each row must be uniquely identified using a key
+
+3NF: 
+
+
+id       name        languages    	branch	fees
+			     known
+
+1	   robo	    telugu,		 ECE		 30K
+			    English
+
+
+2	   Sana	     Hindi,		 CSE		 40K
+			     telugu
+
+
+3	   VASI          Tamil,		 EEE		 25K
+			    English
+
+
+
+1 NF	-->	1) It removes repeated groups
+
+		2) Identify primary key 
+
+(pk)
+id       name        languages	branch	fees
+			     known
+
+1	   robo	    telugu		 ECE		 30K
+
+1	   robo	    English		 ECE		 30K
+			    
+
+
+2	   Sana	     Hindi		 CSE		 40K
+
+2	   Sana	     Telugu	 	 CSE		 40K
+			     
+
+
+3	   VASI          Tamil		 EEE		 25K
+			   
+3	   VASI          English	 EEE		 25K
+
+
+
+2 NF	-->	1) Follows 1 NF
+
+		2) No partial dependency
+
+id       name        branch	      fees			
+
+1	   robo	    	ECE		 30K
+
+2	   Sana	     	CSE		 40K
+			   
+3	   VASI         EEE		 25K
+
+
+id	Langauges
+	known
+
+1	telugu
+
+1	english
+
+2	hindi
+
+2	telugu
+
+3	tamil
+
+3	english
+
+
+
+
+3 NF	-->	1) Follows 2 NF
+
+		2) No Transitive dependency
+
+
+id       name        branch
+
+1	   robo	    	ECE
+
+2	   Sana	     	CSE
+
+3	   VASI         	EEE
+
+
+branch	      fees	
+
+ECE		 	30K
+
+CSE		 	40K
+
+EEE		 	25K
+
+
+id	Langauges
+	known
+
+1	telugu
+
+1	english
+
+2	hindi
+
+2	telugu
+
+3	tamil
+
+3	english
+
+
+
+primary key : 
+
+1) A primary key column cannot contain duplicates(Unique Identifier)
+
+2) A primary cannot contain null values
+
+3) There can be only one primary per table
+
+Unique :
+
+1) Unique is similar to primary key, which means it also prevent dupicates
+
+2) Unique allows nulls where as primary key doesnt allow null
+
+3) you can have multiple unique key columns in same table
+
+
+
+Foreign Key : Helps us co relate the records of 1 Table with records of other table
+
+
+1) to co relate we compare the values of foreign key column with the vlues of primary key column
+
+2) Foreign key columns allows duplicates
+
+3) Foreign key column allows nulls too
+
+4) Foreign key ensures Referential integrity
+
+
+Referential Integrity
+
+1) Referential Integrity ensures that only those values are accepted in foreign key column which exits in corresponding primary key
+
+2) foreign key rejects the values that are not found in primary key Column
+
+
+
+(1) sql is case insensitive language
+
+(2) Each sql stament must terminate using ;
+
+(3) short key to execute sql statement is ctrl+enter or command +return
+
+==============================================  DDL COMMANDS ================================================
+
+comment           --->   -- Comment
+
+create            --->   create database c316_db;
+
+use               --->   use c316_db;
+
+show              --->   show databases;
+
+desc              --->   desc table (It describes the table )
+
+                         desc stock
+
+distinct          --->   it wil print without duplicates
+
+				 select distinct(names) from sales;
+
+select            --->   select * from table;
+
+insert            --->   insert stock values(101,'HP',53000,'Entertainment Laptop');
+
+			       insert stock(product_id,price,pdesc) values(102,0,'Skipping coulmns lab');
+
+Multiple Insert   --->   insert into products(pname,price,coffee_origin) values
+				 ('ESPRESSO',2.50,'BRAZIL'),
+  				 ('MACCHIATO',3.00,'BRAZIL'),
+				 ('CAPPUCCCINO',3.50,'COSTA RICA'),
+				 ('LATTE',3.50,'INDONESIA'),
+				 ('AMERICANO',3.00,'BRAZIL'),
+   				 ('FLAT WHITE',3.50,'INDONESIA'),
+				 ('FILTER',3.00,'INDIA');
+
+Change name       --->   1) alter table <Table_name> rename column <present column name> to <change column name>
+
+				 Ex : alter table customer rename vamsi to krishna;
+					
+				 2)alter table <Table_name> change column <Present column> <future column> datatype;
+
+				 Ex  : alter table sales change column sale ticketSize float default 0;
+
+Drop Column      --->    1) alter table <Table_name> drop column <column_name>
+
+				 Ex :  alter table sales drop column email_id;
+
+Add Column       --->    1) alter table <Table_name> add column <column_name> <type>
+
+				 Ex :  alter table customer add column email varchar(255);
+
+select distinct(city) from station where city REGEXP '^[aeiouAEIOU].*[aeiouAEIOU]$'
+
+select distinct city from station where city not regexp '^.*[aeiouAEIOU]$'
+
+
+As              --->    Aliases
+
+				select name,district,population,population * 2 as newPop from city;// newPop is new column
+
+AND		    --->    IF both the condition are true 
+
+				select * from city where id>=4 and id<=12;
+
+				select * from city where district='punjab' and countrycode='ind';
+
+Between 	    --->    Range Operator which is used to print in the range
+
+				select * from city where id between 2 and 4;
+
+Or		    --->    To check one of the condition is true
+
+
+				select * from city where id=5 or id=15 or id=55;
+
+not		    --->    To diselect 
+		
+				select * from city where id not between 2 and 3000;
+
+in              --->    To select 
+
+				select * from city where id in (5,16,21);
+
+				select * from city where countrycode in ('ind','aus','chn');
+
+not in 	    --->    No to select
+	
+				select * from city where countrycode not in ('ind','aus','chn');
+
+Distinct 	    --->    To find the distinct elements we actually use this  or to remove the duplicates
+
+				
+
+Is		    --->    To select the id is null or nut null
+
+				select * from country where indepyear is null;
+
+				select * from country where indepyear is not null;
+
+min 		    --->    returns the Minimum of the column
+
+				select min(population) as 'minpop' from city;
+
+max		    --->    returns the maximum of the column
+
+				select max(population) as 'maxpop' from city;
+
+avg 		    --->    To select the avg of the column
+
+				select avg(population) as 'avgpop' from city;
+
+sum		    --->    sum of the column
+
+				select sum(population) as 'sumpop' from city;
+
+count		    --->    Count is used to count the number of columns which are not null
+
+				select count(name),count(IndepYear) from country;
+
+Binary          --->    -- Case Sensitive search
+				
+				select * from city where binary name like 'A__N';
+
+concat 	    --->    concatenating the two strings 
+
+				select concat ('sky','is the holy place');
+
+order by 	    --->    Order by the values
+
+				select * from city order by population asc;
+
+				select * from city order by population desc;
+
+like 		    --->    like is used to search the pattern
+
+				select * from city where name like 'wu%';
+
+				select * from city where name like '%shi';
+
+				select * from city where name like '%ping%';
+
+				select * from city where name like '____';
+
+				select * from city where name like 'A__n';
+
+limit   	    --->    Limiting the values 
+
+				select * from city order by population asc limit 5;
+
+				select * from city limit 1000,1;  // Finding the 1001 city 
+
+				select * from city where countrycode='chn' order by population limit 6,1;
+
+ifnull function --->    if its null the function will apply
+
+				select name,ifnull(indepyear,concat('Not Found for ',name)) as 'IndepYear' from country;
+
+
+Group By        --->	Group by the column
+
+				select count(continent),continent from country group by continent;
+
+Inner Join	    --->    Collects the common elements 
+
+				SELECT
+				Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+				FROM Orders
+				INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+
+Right Join	    --->	It will collect the table 2 data along with the common data of table 1
+
+				select ob.id,ob.name,OG.address,ob.age from on_booking OG right join of_booking ob on OG.id=ob.id group by ob.name;
+
+Left Join	    --->	it will collect the table 1 data along with the common data of table 1
+
+				select ob.id,ob.name,OG.address,ob.age from on_booking OG left join of_booking ob on OG.id=ob.id group by ob.name;
+
+
+self Join	    --->	Joins the same table and gives the output
+
+				select c1.id,c1.name,c2.name from customer c1,customer c2 where c1.id=c2.age order by c1.id asc;
+
+===========================================================================< Views >======================================================================================
+
+1) views ara actually virtual tables constructed from existed table
+
+2) changes made in Table reflects on view
+
+3) changes made in view reflects on table
+
+
+create	    		--->	create view s1 as select * from student;
+
+create or replace		--->	create or replace view w as 
+					select * from person1 where sal >15000;
+
+Drop		    		--->  Drop view s1;
+
+update	    		--->	update s1 set name="vamsi" where name='v1';
+
+Join		   		--->	create view s2 as select ob.id,ob.name,OG.address,ob.age from on_booking OG inner join of_booking ob on OG.id=ob.id;
+
+Alter				--->	alter view emp1 as select * from emp;
+
+===========================================================================< RANK >======================================================================================
+
+rank()		 --->	  select id,name,marks ,rank() over(order by marks desc) as student_rank from emp;
+
+				  select *,rank() over (order by branch) as 'RANK1' from students;
+
+				eg:   name  , %    ,  Gender , Branch, Rank
+					Sai   , 79.2 ,   male  , civil ,  1
+					divya , 67   ,  female , cse   ,  2
+					vamsi , 95.5 ,   male  , ece   ,  3
+					bhavya, 96   ,  female , ece   ,  3
+					Latha , 99   ,  female , eee   ,  5
+
+ 				  select *,rank() over (partition by branch order by branch) as 'RANK1' from students;
+
+				eg:   name, % , Gender,Branch  ,Rank
+					Sai, 79.2,   male  ,civil, 1
+					divya, 67,  female , cse , 1
+					vamsi, 95.5, male  , ece , 1
+					bhavya, 96, female , ece , 1
+					Latha, 99,  female , eee , 1
+
+
+ROW_NUMBER()	 --->	  select id,name,marks ,ROW_NUMBER() over(order by marks desc) as student_rank from emp;
+
+				  select *,row_number() over (order by branch) as 'RANK1' from students;
+
+				     name , %   , Gender ,Branch ,Rank
+				       Sai, 79.2, male   , civil , 1
+				     divya, 67  , female , cse   , 2
+				     vamsi, 95.5, male   , ece   , 3
+				    bhavya, 96  , female , ece   , 4
+				    Latha , 99  , female , eee   , 5
+
+				  select *,row_number() over ( partition by branch order by branch) as 'RANK1' from students;
+
+				 eg: name , %   , Gender ,Branch ,Rank
+				       Sai, 79.2, male   , civil , 1
+				     divya, 67  , female , cse   , 1
+				     vamsi, 95.5, male   , ece   , 1
+				    bhavya, 96  , female , ece   , 2
+				    Latha , 99  , female , eee   , 1
+
+
+Dense_rank()	 --->	  select id,name,marks ,DENSE_rank() over(order by marks desc) as student_rank from emp;
+
+				  select *,dense_rank() over (order by branch) as 'RANK1' from students;
+
+				eg :  # name , %    , gender , branch, RANK1
+					   Sai , 79.2 ,  male  , civil , 1
+				       divya , 67   , female , cse   , 2
+                               vamsi , 95.5 ,  male  , ece   , 3
+                               bhavya, 96   , female , ece   , 3
+                               Latha , 99   , female , eee   , 4
+
+				  select *,dense_rank() over (partition by branch order by branch) as 'RANK1' from students;
+
+				eg :  # name , %    , gender , branch, RANK1
+					   Sai , 79.2 ,  male  , civil , 1
+				       divya , 67   , female , cse   , 1
+                               vamsi , 95.5 ,  male  , ece   , 1
+                               bhavya, 96   , female , ece   , 1
+                               Latha , 99   , female , eee   , 1
+			
+
+
+Partition By	 --->   select s_name,subjects,mark,dense_rank() over(partition by subjects order by mark desc) as 'D_Rank' from func;
+
+
+==========================================================================< TRANSACTION >===============================================================================
+
+1) Its a set of queries to perform logical operations
+
+2) If one query fails entire transaction will fail
+
+ex:-  start transaction;
+	update trans set money=900 where tname='Soniya';
+ 	update trans set money=1100 where tname='Sandhya';
+	commit;
+	
+	Insert 
+
+	delete
+
+	Update
+	
+	set @@autocommit=0;  or set @@autocommit=off;
+
+	set @@autocommit=1;  or set set @@autocommit=on;
+
+	roll back   -->   it will rollback the table before one query if the commit is not done
+
+	commit      -->   it is to save the table
+ 
+
+Atomicity	--->	1) Entire transaction would takes place at once or doesnt happen at all
+
+
+Consistency	--->	1) It wil say the consistency of the database before and after the transaction
+
+
+Isolation	--->	1) Multiple transactions occur with out any interference
+
+
+Durability	--->	1) even if the system failure occurs successful transaction would happen
+
+
+start transaction;
+savepoint initial ;
+
+insert into s0 values
+('a',1000),
+('b',2000),
+('c',1500),
+('d',3000),
+('e',4000),
+('f',6000);
+savepoint ins;
+
+delete from s0 where money>5000;
+savepoint del;
+
+update s0 set name='z' where money=1000;
+savepoint upd;
+
+
+select * from s0;
+
+rollback to del;
+
+rollback to initial;
+
+
+
+======================================================================== < Temporary tables > ======================================================================
+
+This will be stored in internal memory or in disk stored by innoDB or MyISAM store engine
+
+Temporary Table		-->	
+
+
+					ex: create temporary table temp_student(id int,name varchar(255));
+
+					    create temporary table temp_staff 
+					    select * from staff;
+
+					    Drop temporary table temp_staff;
+
+
+====================================================================< Subquery >================================================================================
+
+Normal Syubqueries	-->	Bothe queries are dependent to each other
+
+					firstly inner query will execute and after that outer query will
+
+Correlated Subquery	-->	
+
+Correlated Subquery	-->	select name,sal,branch from employee1 as e1 where sal >(select avg(sal) from employee1 as e2 where e2.branch = e1.branch );
+
+					select * from person1 p1 where 1=(select count(*) from person1 p2 where p2.sal>=p1.sal);
+
+Normal Subquery		-->	select * from employee where working_hours >(select avg(working_hours) from employee);
+
+
+=====================================================================< Interview >================================================================================
+
+select id,name,sal from(
+select id,name,sal,row_number() over(order by (select 2)) as rnk from person1) A where rnk%2 <>0;
+
+select * from (select * ,row_number() over(order by id) as rm from employee1) A where rm%2<>0;
+
+select name,percentage,gender,branch from (select *,row_number() over(partition by name order by name) as rnk from st) B where rnk=1;
+
+select * from (select *,dense_rank() over(order by age desc) dr_age from emp) A where dr_age=2;		--->	Nth highest Salary
+
+====================================================================================================================================================================
+
+IF			-->	SELECT IF(500<1000, 5, 10);
+
+IFNULL()		-->	SELECT IFNULL(NULL, 500);
+
+ISNULL()		-->	SELECT ISNULL("Hello world!");
+
+case			-->	select id,name,
+				case
+				when wage<=8 then "normal papa"
+				when wage>=12 then "erripapa"
+				end as status
+				from staff;
+
+STRCMP		-->	SELECT STRCMP("SQL Tutorial", "SQL Tutorial");
+
+IF AND STRCMP	-->	SELECT IF(STRCMP("SQL Tutorial", "SQL Tutorial")=0,"equal","not equal");
+
+UPPER()		-->	SELECT UPPER("SQL Tutorial is FUN!") AS UppercaseText;
+
+UCASE()		-->	SELECT UCASE("SQL Tutorial is FUN!") AS UppercaseText;
+
+
+SUBSTR		-->	SELECT SUBSTR("SQL Tutorial", -5, 5) AS ExtractString;
+
+				#ORIAL
+
+REVERSE		-->	SELECT REVERSE("SQL Tutorial");
+
+				#lairotuT LQS
+
+REPLACE		-->	SELECT REPLACE("SQL Tutorial", "SQL", "HTML");
+
+				# html tUTORIAL
+
+REPEAT		-->	SELECT REPEAT("SQL Tutorial", 3);
+	
+				#SQL TutorialSQL TutorialSQL Tutorial
+
+LOCATE		-->	SELECT LOCATE("3", "W3Schools.com") AS MatchPosition;
+
+				#2
+
+LENGTH()		-->	SELECT LENGTH("SQL Tutorial") AS LengthOfString;
+
+				#12
+
+ASCII()		-->	SELECT CustomerName, ASCII(CustomerName) AS NumCodeOfFirstChar
+				FROM Customers;
+
+========================================================================<	Indexes	>===============================================================
+
+create Index	--->	create index empw on employee(working_hours);
+
+Show Indexes	--->	show index from employee;
+
+Drop Index		--->	alter table student drop index s1;
+
+
+======================================================================== < Stored Procedures >==============================================================
+
+Stored Procedures	   :   It is a set of sql commands , it is saved inside system ,
+
+				 Main advantages are code reusability and it actually protects from sql injection 
+
+Non- Parameterized   :   	delimiter //
+					create procedure np()
+				 	begin
+				 	select * from p1 where age >20 and gender like 'f%';
+				 	end //
+
+Parameterized 	   	:	delimiter //
+					create procedure parameter_procedure(a int,g varchar(7))
+				 	begin
+				 	select * from p1 where age>a and gender=g;
+				 	end //
+
+
+					delimiter //
+					CREATE PROCEDURE calculate_sum (IN num1 INT, IN num2 INT, OUT sum INT)
+					BEGIN
+    					SET sum = num1 + num2;
+					END//
+
+					CALL calculate_sum(10, 20, @result);
+					SELECT @result;
+
+Deleting the procedures	:	drop procedure p2;
+
+
+======================================================================= < Triggers > =====================================================================
+
+Triggers are like special type of stored procedures that is invoked automatically in response to an event
+
+	  
+Syntax: Delimiter //
+
+	  create trigger [Trigger_name] 
+
+	  (BEFORE | AFTER) (INSERT | UPDATE | DELETE)
+
+	  ON [TABLE_NAME]
+
+	  for each row
+
+	  BEGIN
+
+	  --Variable Declaration
+
+	  --Trigger Code
+
+	  END //
+
+
+BEFORE INSERT    --->   IT WILL CHECK AND INSERT INTO THE TABLE 
+
+Create Table   :-
+
+			CREATE TABLE student_grade (
+    			id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    			names varchar(200),
+    			CA_scores int(11),
+    			test_scores int(11),
+    			exam_scores int(11),
+    			total_scores int(11)
+			);
+
+
+Create Trigger	:-	CREATE TRIGGER stud_tot_grade 
+				before INSERT 
+				ON
+				student_grade
+				FOR EACH ROW
+				SET NEW.total_scores=NEW.CA_scores + NEW.test_scores + NEW.exam_scores ; 
+
+				
+
+				delimiter //
+ 				create trigger b_Insert
+ 				before insert on student_grade for each row
+ 				begin
+ 				set new.names=replace(new.names,'n','N');
+ 				end //
+
+
+				delimiter //
+				create trigger before_insert_on_p
+				before insert on p
+				for each row
+				if new.age<18 then set new.age=18;
+				end if //
+
+AFTER INSERT	:-	
+
+
+
+CREATE TRIGGER	:-	CREATE TABLE student_detail (  
+ 				stud_id int NOT NULL,  
+  				stud_code varchar(15) DEFAULT NULL,  
+  				stud_name varchar(35) DEFAULT NULL,  
+  				subject varchar(25) DEFAULT NULL,  
+  				marks int DEFAULT NULL,  
+  				phone varchar(15) DEFAULT NULL,  
+  				Lasinserted Time,  
+  				PRIMARY KEY (stud_id)  
+				);  
+
+
+				CREATE TABLE student_info (  
+  				stud_id int NOT NULL,  
+  				stud_code varchar(15) DEFAULT NULL,  
+  				stud_name varchar(35) DEFAULT NULL,  
+  				subject varchar(25) DEFAULT NULL,  
+  				marks int DEFAULT NULL,  
+  				phone varchar(15) DEFAULT NULL,  
+  				PRIMARY KEY (stud_id)  
+				);
+
+
+	QUERY       :-	DELIMITER //
+				Create Trigger after_insert_details  
+				AFTER INSERT ON student_info FOR EACH ROW  
+				BEGIN  
+				INSERT INTO student_detail VALUES (new.stud_id, new.stud_code,   
+				new.stud_name, new.subject, new.marks, new.phone, CURTIME());  
+				END //
+
+
+BEFORE UPDATE    :-
+
+CREATE TABLE     :-    create table staff(
+				id int not null,
+    				name varchar(50),
+    				wage decimal(6,2),
+    				primary key(id));
+
+
+INSERTING		:-	insert into staff values(1,'vk',5);
+
+
+QUERY			:-	Delimiter //
+				create trigger before_update_staff
+				before update on staff
+				for each row
+				begin
+				if new.wage<8
+				then set new.wage=8;
+				end if;
+				end //
+
+				update staff set wage=6 where id=1;
+
+
+AFTER UPDATE	:-
+
+CREATE TABLE	:-	CREATE TABLE students(    
+    				id int NOT NULL AUTO_INCREMENT,    
+    				name varchar(45) NOT NULL,    
+   				class int NOT NULL,    
+    				email_id varchar(65) NOT NULL,    
+   				PRIMARY KEY (id)    
+				);
+
+				CREATE TABLE students_log(    
+    				user varchar(45) NOT NULL,    
+    				descreptions varchar(65) NOT NULL  
+				); 
+
+				INSERT INTO students (name, class, email_id)     
+				VALUES ('Stephen', 6, 'stephen@javatpoint.com'),   
+				('Bob', 7, 'bob@javatpoint.com'),   
+				('Steven', 8, 'steven@javatpoint.com'),   
+				('Alexandar', 7, 'alexandar@javatpoint.com'); 
+
+ 
+
+TRIGGER		:-	DELIMITER //
+				create trigger af_updateOnstudent
+				after update on students
+				for each row
+				begin
+				insert into students_log values(old.name,concat(new.name,new.class,new.email_id));
+				end //
+				
+
+				
+
+===================================================================< Joins >============================================================================
+
+Three Table Join	--->	select * from vam join vam2 on vam.emp = vam2.emp2 join vam3 on vam2.emp2 = vam3.emp3;
+
+
+
+
+
+==========================================================================================================================================================
+
+-- Group by
+
+-- HAVING
+
+-- Union or union all
+
+-- subquery
+
+===================================================================  ACTIVITY =========================================================================
+
+-- Activiy : Percentage between 80 and 90 and it shoud be IsOfficial
+
+select * from countrylanguage where percentage>=80 and percentage<=90 and IsOfficial='T';
+
+-- Activity : Second most populated district in the state
+
+select * from city where district='Andhra Pradesh' order by population desc  limit 1,1;
+
+-- Activity to print 7 th  most population in china
+ 
+select * from city where countrycode='chn' order by population limit 6,1;
+
+-- Activity to find region(Middle East) , contoinent(Asia) and find the 10 the country according to the life expectancy
+
+select * from country where region='Middle East' and continent='asia' order by lifeExpectancy desc limit 9,1 ;
+
+
+
+select round(sum(lat_n),2),round(sum(long_w),2) from station;
+
+
+
+
+

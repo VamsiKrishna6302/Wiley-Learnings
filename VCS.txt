@@ -1,0 +1,27 @@
+version control system : 
+
+1) version control is a system that records changes to a files yp can recall an specific version
+
+2)It allows you to work togetehr with other programmers
+
+3)It is a collection of software tools that help a team to manage changes in source code
+
+Benefits of vcs 
+
+1) Quality : Team can review , Comment and improve each others code
+
+2) Visiblity 
+
+3) Acceleration  
+
+Localized : A local version control systems keeps local copies of the files(Version 1, Version 2 , Version 3,
+
+Centralized : The versioned files and some clients to check files from different place
+
+distributed : The distribued vcs such as git uses local copy of the project
+
+branch : A work space in which you can make chnages that wont effect the live site
+
+commit : A saved record of a change made to afile within repo
+
+pull request : 

@@ -1,0 +1,78 @@
+fixed Deposits :   1) These are like we are depositing some amount of money for the some extent of time( fixed time ) 
+
+			 2) and we will get the money along with the compound interest
+
+
+Stocks   :		1) Its a kind of investment
+
+			2) its a security that represents the ownership of a fraction of a resulting company 
+
+			3) units of stocks are called as shares 
+
+Bonds    :		1) These are actually issued by Governemnt and Corporation
+
+			2) whenever they want to raise the money 
+
+Derivatives :	1) Its a kind of financial contracts 
+
+			2) set between two parties , that which derive the  value of underlying assets 
+
+
+CDS ( CREDIT DEFAULT SWAPS )	:	1) Its a type of contract between two parties one parties will give kind of guarantee to the other against the losses for a defining period of time 
+
+						2) financial derivatives which transfer the risk of default to another party in exchange for fixed payments.
+
+
+CDO ( Collateralized Debt Obligation )	:	1) Its a structured finance product backed by a pool of loans and assets 
+
+								2) Mortgage backed security
+
+fixed Assets :	1) Assets which are tangible ( physical and measurable )
+
+			2) Assets like propoert, plant & Equipment (PP&E). These are reliable and useful for a long period of time 
+
+			3) Examples are : Furniture , land, machinery etc.,
+
+Non Fixed Assets 		:	1)  it will be under the form of partnership and which describes about cash and inventory
+
+Investment Banking 	: 	1) A bank that provides services to the corporation and institutional customers
+
+					2) such as investing , raising capital and arranging 
+
+Commercial Banking	:	1) A financial institution that provides services to its customers like loan and fixed deposits .
+
+
+
+
+capital market	:	1) The venue where funds are exchanged between buyers and sellers in the form of equity bonds,shares etc.,
+
+Money Market	:	1) The money market involves the purchases and sales of large volumes of very short term debt products,
+
+				2) Such as overnight reserves or commercial paper 
+
+Primary Market	:	1) It contains certain kind of securities and first allowed
+
+				2) in which the new stocks or shares will be release to the public 
+
+				3) Example : IPO ( INITIAL PUBLIC OFFERING )
+
+
+Secondary Market	:	1) another name is stock market
+
+				2) stock exchange where traders and investors buy and sell shares of publicly traded companies
+
+
+Forwards and Futures	:	1)	Its a kind of contract between two parties who agree to buy or sell specific asset at a set price by a certain date in the future 
+
+					2)	forwards are customized and need to settle at the end             futures are standared we can settle it on daily basis
+
+
+Options	:	1)	Gives holder a right and not obligation to buy or sell teh underlying asset at a specific rate and date 
+
+
+Stake Holders	:	1)	they are like well being of the company 
+
+
+
+
+
